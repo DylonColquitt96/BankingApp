@@ -31,11 +31,35 @@ public class BankingApp {
                 System.out.println("3. to get account balance");
                 System.out.println("4. to exit");
 
+            }
+
                 action = input.nextLine();
                 if(action.equals("1")){
                     System.out.println("How much do you want to withdraw?");
                     double amount = input.nextDouble();
-                }
+                    input.nextLine(); //Put a next line auto in to avoid an error if you are using an nextDouble or
+                    // nextInt.
+
+                    currentAccount.withdrawal(amount);
+                    //Above we are using the method found in **Account** class on line 24
+
+                    System.out.println(currentAccount.checkAccountBalance());
+                    //Above we are using the method found in **Account** class on line 32
+                } else if(action.equals("2")){
+                System.out.println("How much do you want to deposit?");
+                double amount = input.nextDouble();
+                input.nextLine(); //Put a next line auto in to avoid an error if you are using an nextDouble or
+                // nextInt.
+
+
+                currentAccount.deposit(amount);
+                //Above we are using the method found in **Account** class on line 28
+
+                System.out.println(currentAccount.checkAccountBalance());
+                //Above we are using the method found in **Account** class on line 32
+            } else if(action.equals("3")){
+                System.out.println(currentAccount.checkAccountBalance());
+                //Above we are using the method found in **Account** class on line 32
 
             } else{
                 //if user enters in the incorrect account number, it will return null and it will skip to the else
